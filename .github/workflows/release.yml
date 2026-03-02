@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version tag (e.g. 1.0.0)"
+        required: true
+        type: string
+      title:
+        description: "Release title"
+        required: true
+        type: string
+      prerelease:
+        description: "Mark as pre-release"
+        required: false
+        type: boolean
+        default: false
+  release:
+    types: [published]
+
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+
+    # Restrict to users with admin or maintainer role.
+    # Configure allowed teams/users in Settings > Environments > "release".
+    environment: release
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: want test
+        shell: cmd
+
+      - name: Build and package
+        run: want pub
+        shell: cmd
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          name: ${{ inputs.title }}
+          generate_release_notes: true
+          draft: true
+          prerelease: ${{ inputs.prerelease }}
+          files: |
+            dist/eu_skill_reader.exe
+            dist/eu_skill_reader.sha512
+
+  virustotal:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: VirusTotal scan
+        uses: crazy-max/ghaction-virustotal@v4
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          update_release_body: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          request_rate: 4
+          files: |
+            .exe$

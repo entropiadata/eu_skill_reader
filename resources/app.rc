@@ -1,0 +1,48 @@
+#include <winres.h>
+
+// App icon
+IDI_APPICON ICON "app-icon.ico"
+
+// Embedded skill list
+IDR_SKILL_LIST RCDATA "eu_skill_list.csv"
+
+// App manifest (DPI awareness, common controls v6, OS compatibility)
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+
+// Version info (shown in exe Properties > Details tab)
+#define VER_MAJOR 1
+#define VER_MINOR 0
+#define VER_PATCH 0
+#define VER_BUILD 0
+
+#define VER_STR "1.0.0"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION    VER_MAJOR, VER_MINOR, VER_PATCH, VER_BUILD
+PRODUCTVERSION VER_MAJOR, VER_MINOR, VER_PATCH, VER_BUILD
+FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+FILEFLAGS      0
+FILEOS         VOS__WINDOWS32
+FILETYPE       VFT_APP
+FILESUBTYPE    VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"  // English (US), Unicode
+        BEGIN
+            VALUE "Comments",         "Project Homepage: https://github.com/entropiadata/eu_skill_reader"
+            VALUE "CompanyName",      "entropiadata"
+            VALUE "FileDescription",  "EU Skill Reader"
+            VALUE "FileVersion",      VER_STR
+            VALUE "InternalName",     "eu_skill_reader"
+            VALUE "LegalCopyright",   "\251 2026 entropiadata project"
+            VALUE "OriginalFilename", "eu_skill_reader.exe"
+            VALUE "ProductName",      "EU Skill Reader"
+            VALUE "ProductVersion",   VER_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0  // English (US), Unicode
+    END
+END

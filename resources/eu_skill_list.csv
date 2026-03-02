@@ -1,0 +1,189 @@
+# Entropia Universe Skill List
+#
+# Format: SkillName,hidden
+#   hidden = true  -> skill only appears once unlocked by the player
+#   hidden = false -> skill always appears in the list
+#
+# RULES:
+#   - Skills MUST be in the same order the game displays them (its own sort order)
+#   - No duplicate names
+#   - Blank lines and lines starting with # are ignored
+#
+# If new skills are added to the game, insert them in the position the game
+# displays them. If unsure whether a skill is hidden, use "false" (the matcher
+# will still work, it just won't skip it when absent from the display).
+
+Agility,false
+Aim,false
+Alertness,false
+Analysis,false
+Anatomy,false
+Animal Lore,false
+Animal Taming,true
+Armor Technology,false
+Artefact Preservation,false
+Archaeological Lore,true
+Athletics,false
+Attachments Technology,false
+Avoidance,true
+BLP Weaponry Technology,false
+Beauty Sense,true
+Beneficiating,true
+Biology,false
+Bioregenesis,false
+Blueprint Comprehension,true
+Body Sculpting,false
+Botany,false
+Bravado,false
+Butchering,true
+Carpentry,false
+Chemistry,false
+Clubs,false
+Color Matching,false
+Coloring,false
+Coloring Methodology,true
+Combat Reflexes,false
+Combat Sense,true
+Commando,true
+Computer,false
+Concentration,false
+Coolness,true
+Courage,false
+Cryogenics,false
+Deep Space Knowledge,true
+Dexterity,false
+Diagnosis,false
+Dispense Decoy,false
+Doctor,true
+Dodge,false
+Drilling,false
+Drilling Expertise,true
+Electrokinesis,false
+Electronics,false
+Engineering,false
+Enhancer Technology,true
+Equipment Methodology,true
+Ethereal Soul Language,false
+Evade,false
+Explosive Projectile Weaponry Technology,false
+Extraction,true
+Face Sculpting,false
+Fashion Design,true
+First Aid,false
+Force Merge,true
+Fracturing,true
+Fragmentating,false
+Gauss Weaponry Technology,false
+Genetics,false
+Geology,false
+Glamor,true
+Ground Assessment,true
+Hair Stylist,false
+Handgun,false
+Health,false
+Heavy Melee Weapons,false
+Heavy Weapons,false
+Industrialist,true
+Inflict Melee Damage,false
+Inflict Ranged Damage,false
+Integrity Analysis,true
+Intelligence,false
+Intuition,true
+Jamming,false
+Kill Strike,true
+Laser Weaponry Technology,false
+Light Melee Weapons,false
+Longblades,false
+Machinery,false
+Make Textile,false
+Manufacture Armor,false
+Manufacture Attachments,false
+Manufacture Electronic Equipment,false
+Manufacture Enhancers,false
+Manufacture Mechanical Equipment,false
+Manufacture Metal Equipment,false
+Manufacture Methodology,true
+Manufacture Tools,false
+Manufacture Vehicle,false
+Manufacture Weapons,false
+Marksmanship,true
+Martial Arts,true
+Material Comprehension,true
+Material Extraction Methodology,true
+Mechanics,false
+Medical Therapy,true
+Medicine,true
+Melee Combat,false
+Melee Damage Assessment,true
+Mentor,false
+Metallurgy,false
+Mindforce Harmony,true
+Miner,true
+Mineral Sense,true
+Mining,false
+Mining Laser Operator,false
+Mining Laser Technology,false
+Particle Beamer Technology,false
+Perception,false
+Plasma Weaponry Technology,false
+Plastic Surgery,false
+Power Catalyst,true
+Power Fist,false
+Precision Artefact Extraction,false
+Probing,false
+Promoter Rating,false
+Prospecting,false
+Psyche,false
+Pyrokinesis,false
+Quality Sense,true
+Quickness,true
+Ranged Damage Assessment,true
+Reaping,true
+Reclaiming,false
+Reputation,false
+Resource Gathering,false
+Rifle,false
+Robotology,true
+Salvaging,true
+Sampling,true
+Scan Animal,false
+Scan Human,false
+Scan Mutant,false
+Scan Robot,false
+Scan Technology,false
+Scavenging,true
+Scientist,true
+Scourging,false
+Serendipity,true
+Shortblades,false
+Skinning,false
+Spacecraft Engineering,false
+Spacecraft Pilot,false
+Spacecraft Systems,true
+Spacecraft Weaponry,false
+Stamina,false
+Strength,false
+Support Weapon Systems,false
+Surface Composition,true
+Surveying,false
+Sweat Gatherer,false
+Tailoring,false
+Telepathy,false
+Texture Engineering,false
+Texture Pattern Matching,false
+Thermal Drilling,true
+Tier Upgrading,false
+Tools Technology,false
+Translocation,false
+Treasure Sense,false
+Treatment,true
+Vehicle Repairing,false
+Vehicle Technology,false
+Weapon Technology,false
+Weapons Handling,false
+Whip,false
+Wood Carving,false
+Wood Processing,false
+Wounding,true
+Xenobiology,true
+Zoology,false
