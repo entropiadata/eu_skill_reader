@@ -24,6 +24,12 @@ jobs:
       - name: Save binary
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: eu_skill_reader.exe
           path: |
-            dist
+            build/Release/eu_skill_reader.exe
+
+      - name: Save binary sha512 hash
+        uses: actions/upload-artifact@v4
+        with:
+          name: eu_skill_reader.sha512
+          path: build/Release/eu_skill_reader.sha512
