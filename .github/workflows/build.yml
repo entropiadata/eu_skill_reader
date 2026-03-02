@@ -20,3 +20,10 @@ jobs:
       - name: Run tests
         run: want test
         shell: cmd
+
+      - name: Save binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            dist

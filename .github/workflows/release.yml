@@ -1,4 +1,7 @@
-name: Release
+name: Released
+
+permissions:
+  contents: read
 
 on:
   workflow_dispatch:
