@@ -53,9 +53,8 @@ exit /b 1
 
 REM ========================== Command Functions ================================
 
-:cmd_build
-    set CONFIG=%~1
-    if "%CONFIG%"=="" set CONFIG=Release
+:cmd_ensure_configured
+    if exist "build\CMakeCache.txt" exit /b 0
     echo [build] Configuring with CMake...
     cmake -B build -G "Visual Studio 17 2022" -A x64
     if !ERRORLEVEL! NEQ 0 (
@@ -66,6 +65,13 @@ REM ========================== Command Functions ===============================
         echo [build] CMake configuration failed.
         exit /b 1
     )
+    exit /b 0
+
+:cmd_build
+    set CONFIG=%~1
+    if "%CONFIG%"=="" set CONFIG=Release
+    call :cmd_ensure_configured
+    if !ERRORLEVEL! NEQ 0 exit /b 1
     echo [build] Building %CONFIG%...
     cmake --build build --config %CONFIG%
     if !ERRORLEVEL! NEQ 0 (
@@ -95,7 +101,9 @@ REM ========================== Command Functions ===============================
     echo [test:synth] Running synthetic digit tests...
     if not exist "build\Release\test_numbers.exe" (
         echo [test:synth] Not found. Building first...
-        call :cmd_build Release
+        call :cmd_ensure_configured
+        if !ERRORLEVEL! NEQ 0 exit /b 1
+        cmake --build build --config Release --target test_numbers
         if !ERRORLEVEL! NEQ 0 exit /b 1
     )
     build\Release\test_numbers.exe
@@ -109,7 +117,9 @@ REM ========================== Command Functions ===============================
     echo [test:png] Running PNG regression tests...
     if not exist "build\Release\test_png_numbers.exe" (
         echo [test:png] Not found. Building first...
-        call :cmd_build Release
+        call :cmd_ensure_configured
+        if !ERRORLEVEL! NEQ 0 exit /b 1
+        cmake --build build --config Release --target test_png_numbers
         if !ERRORLEVEL! NEQ 0 exit /b 1
     )
     build\Release\test_png_numbers.exe "%~dp0."
